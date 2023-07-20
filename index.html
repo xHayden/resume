@@ -7,18 +7,11 @@
     <script src="
         https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/build/pdf.min.js
     "></script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            width: 100vw;
-        }
-    </style>
     <script>
         var loadingTask = pdfjsLib.getDocument('HaydenCarpenter_Resume.pdf');
         loadingTask.promise.then(function(pdf) {
             pdf.getPage(1).then(function(page) {
-                var scale = 1.5;
+                var scale = 1;
             var viewport = page.getViewport({ scale: scale, });
             // Support HiDPI-screens.
             var outputScale = window.devicePixelRatio || 1;
@@ -45,7 +38,7 @@
         });
     </script>
 </head>
-<body>
+<body style="display: flex; justify-content: center; width: 100vw; margin: 0;">
     <canvas id="ctx"></canvas>
 </body>
 </html>

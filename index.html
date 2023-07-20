@@ -10,7 +10,8 @@
     <script>
         var loadingTask = pdfjsLib.getDocument('HaydenCarpenter_Resume.pdf');
         loadingTask.promise.then(function(pdf) {
-            var scale = 1.5;
+            pdf.getPage(1).then(function(page) {
+                var scale = 1.5;
             var viewport = page.getViewport({ scale: scale, });
             // Support HiDPI-screens.
             var outputScale = window.devicePixelRatio || 1;
@@ -33,6 +34,7 @@
             viewport: viewport
             };
             page.render(renderContext);
+            });
         });
     </script>
 </head>
